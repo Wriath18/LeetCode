@@ -30,11 +30,13 @@ void reorderList(ListNode* head) {
         temp = temp->next;
     }
     int start = 0;
-    int end = i/2;
+    int end = i-1;
     while(start <= end)
     {
-        arr[start]->next = arr[i-start];
+        arr[start]->next = arr[end];
+        arr[end]->next = (start == end) ? nullptr : arr[start + 1]; 
         start++;
+        end--;
     }
 
     printLinkedList(head);
@@ -68,9 +70,3 @@ int main() {
     return 0;
 }
 
-class Solution {
-public:
-    void reorderList(ListNode* head) {
-        
-    }
-};
